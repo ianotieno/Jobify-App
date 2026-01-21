@@ -1,21 +1,38 @@
-import React from 'react'
-import HomeLayout from './pages/ HomeLayout';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+
+import {
+  Landing,
+  Register,
+  Login,
+  DashboardLayout,
+  Error,
+} from './pages';
 
 const router = createBrowserRouter([
   {
-    path: '/',
-    element: <HomeLayout />,
+    path: '/register',
+    element: <Register />,
   },
   {
-    path: '/about',
-    element: <div>About Page</div>
+    path: '/login',
+    element: <Login />,
+  },
+  {
+    path: '/dashboard',
+    element: <DashboardLayout />,
+  },
+  {
+    path: '/landing',
+    element: <Landing />,
+  },
+  {
+    path: '/error',
+    element: <Error />,
   },
 ]);
+
 function App() {
-  return (
-    <RouterProvider router={router} />
-  )
+  return <RouterProvider router={router} />;
 }
 
-export default App
+export default App;

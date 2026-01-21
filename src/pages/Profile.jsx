@@ -1,11 +1,11 @@
 import React from 'react'
 
-function EditJob() {
+function Profile() {
   return (
     <h1>
-      EditJob
+      Profile
     </h1>
   )
 }
 
-export default EditJob
+export default Profile
