@@ -1,14 +1,49 @@
 import React from 'react';
 import Wrapper from '../assets/wrappers/SmallSidebar';
 import { useDashboardContext } from '../pages/DashboardLayout'; 
+import links from '../utils/links';
+import { FaTimes } from 'react-icons/fa';
+import Logo from './Logo';
+import { NavLink } from 'react-router-dom';
 
 function SmallSideBar() {
-  const data = useDashboardContext(); 
-  console.log(data);
+  const { showSidebar, toggleSidebar } = useDashboardContext();
   return (
     <Wrapper>
+      <div
+        className={
+          showSidebar ? 'sidebar-container show-sidebar' : 'sidebar-container'
+        }
+      ><div className='content'>
+      <button type='button' className='close-btn' onClick={toggleSidebar}>
+        <FaTimes />
+      </button>
+      <header>
+        <Logo />
+      </header>
+      <div className='nav-links'>
+        {links.map((link) => {
+          const { text, path, icon } = link;
 
-      <h5>Small Side Bar</h5>
+          return (
+            <NavLink
+              to={path}
+              key={text}
+              className='nav-link'
+              onClick={toggleSidebar}
+              // will discuss in a second
+              end
+            >
+              <span className='icon'>{icon}</span>
+              {text}
+            </NavLink>
+          );
+        })}
+      </div>
+    </div>
+
+
+      </div>
     </Wrapper>
   );
 }
