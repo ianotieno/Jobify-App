@@ -1,11 +1,37 @@
-import React from 'react'
 
-function Register() {
+import Wrapper from '../assets/wrappers/RegisterAndLoginPage';
+import { Link } from 'react-router-dom';
+const Register = () => {
   return (
-    <h1>
-      Register
-    </h1>
-  )
-}
+    <Wrapper>
+      <form className='form'>
+  
+        <h3>register</h3>
+        <div className='form-row'>
+          <label htmlFor='name' className='form-label'>
+            name
+          </label>
+          <input
+            type='text'
+            id='name'
+            name='name'
+            className='form-input'
+            defaultValue='john'
+            required
+          />
+        </div>
 
-export default Register
+        <button type='submit' className='btn btn-block'>
+          submit
+        </button>
+        <p>
+          Already a member?
+          <Link to='/login' className='member-btn'>
+            Login
+          </Link>
+        </p>
+      </form>
+    </Wrapper>
+  );
+};
+export default Register;
