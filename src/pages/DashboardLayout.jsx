@@ -1,11 +1,24 @@
-import React from 'react'
+import { Outlet } from 'react-router-dom';
 
-function DashboardLayout() {
+import Wrapper from '../assets/wrappers/Dashboard';
+import { Navbar, BigSidebar } from '../components';
+import SmallSideBar from '../components/SmallSideBar';
+
+const Dashboard = () => {
   return (
-    
-        <h1>Dashboard Layout</h1>
-    
-  )
-}
+    <Wrapper>
+      <main className='dashboard'>
+        <BigSidebar />
+        <SmallSideBar />
+        <div>
+          <Navbar />
+          <div className='dashboard-page'>
+            <Outlet />
+          </div>
+        </div>
+      </main>
+    </Wrapper>
+  );
+};
 
-export default DashboardLayout
+export default Dashboard;
