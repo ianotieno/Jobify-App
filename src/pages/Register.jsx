@@ -1,12 +1,13 @@
 
 import Wrapper from '../assets/wrappers/RegisterAndLoginPage';
 import { Link } from 'react-router-dom';
+import Logo from '../components/Logo';
 const Register = () => {
   return (
     <Wrapper>
       <form className='form'>
-  
-        <h3>register</h3>
+  <Logo />
+        <h4>register</h4>
         <div className='form-row'>
           <label htmlFor='name' className='form-label'>
             name
