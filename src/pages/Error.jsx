@@ -1,8 +1,15 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
+import { useRouterError } from 'react-router-dom';
 
-function  Error() {
+function Error() {
+  const error = useRouterError();
+  console.log(error);
   return (
-    <h1> Error</h1>
+    <div>
+      <h1>Error</h1>
+      <Link to="/">Go Back Home</Link>
+    </div>
   )
 }
 
