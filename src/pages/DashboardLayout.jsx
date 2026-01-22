@@ -1,24 +1,57 @@
+/* eslint-disable react-refresh/only-export-components */
+import { useState, createContext, useContext } from 'react';
 import { Outlet } from 'react-router-dom';
-
 import Wrapper from '../assets/wrappers/Dashboard';
-import { Navbar, BigSidebar } from '../components';
-import SmallSideBar from '../components/SmallSideBar';
+import { Navbar, BigSidebar, SmallSidebar } from '../components';
+
+const DashboardContext = createContext();
 
 const Dashboard = () => {
+  const user = { name: 'john' };
+  const [showSidebar, setShowSidebar] = useState(false);
+  const [isDarkTheme, setIsDarkTheme] = useState(false);
+
+  const toggleDarkTheme = () => {
+    const newDarkTheme = !isDarkTheme;
+    setIsDarkTheme(newDarkTheme);
+    document.body.classList.toggle('dark-theme', newDarkTheme);
+  };
+
+  const toggleSidebar = () => {
+    setShowSidebar(!showSidebar);
+  };
+
+  const logoutUser = async () => {
+    console.log('logout user');
+  };
+
   return (
-    <Wrapper>
-      <main className='dashboard'>
-        <BigSidebar />
-        <SmallSideBar />
-        <div>
-          <Navbar />
-          <div className='dashboard-page'>
-            <Outlet />
+    <DashboardContext.Provider
+      value={{
+        user,
+        showSidebar,
+        isDarkTheme,
+        toggleDarkTheme,
+        toggleSidebar,
+        logoutUser,
+      }}
+    >
+      <Wrapper>
+        <main className='dashboard'>
+          <BigSidebar />
+          <SmallSidebar />
+          <div>
+            <Navbar />
+            <div className='dashboard-page'>
+              <Outlet />
+            </div>
           </div>
-        </div>
-      </main>
-    </Wrapper>
+        </main>
+      </Wrapper>
+    </DashboardContext.Provider>
   );
 };
+
+export const useDashboardContext = () => useContext(DashboardContext);
 
 export default Dashboard;
