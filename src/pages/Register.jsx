@@ -15,7 +15,7 @@ const Register = () => {
         <FormRow type='password' name='password' defaultValue={'Paul123'} />
 
         <button type='submit' className='btn btn-block'>
-          submit
+          Register
         </button>
         <p>
           Already a member?

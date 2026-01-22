@@ -12,10 +12,13 @@ function   Login() {
       <FormRow type='email' name='email' defaultValue={'paul@gmail.com'} />
       <FormRow type='password' name='password' defaultValue={'Paul123'} />
       <button type='submit' className='btn btn-block'>
-          submit
+         Login
+        </button>
+        <button type='button' className='btn btn-block'>
+         Explore as Guest
         </button>
         <p>
-         Not a member?
+         Not a member yet?
           <Link to='/register' className='member-btn'>
             Register
           </Link>
