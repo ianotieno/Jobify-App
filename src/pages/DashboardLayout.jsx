@@ -7,7 +7,7 @@ import { Navbar, BigSidebar, SmallSidebar } from '../components';
 const DashboardContext = createContext();
 
 const Dashboard = () => {
-  const user = { name: 'john' };
+  const user = { name: 'Paul' };
   const [showSidebar, setShowSidebar] = useState(false);
   const [isDarkTheme, setIsDarkTheme] = useState(false);
 
